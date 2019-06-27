@@ -11,13 +11,13 @@
                   id="create-thread-form">
                 {{csrf_field()}}
                 <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" class="form-control" name="subject" id="" placeholder="Input..."
+                    <label for="subject">De Onderwerpen</label>
+                    <input type="text" class="form-control" name="subject" id="" placeholder="typ iets..."
                            value="{{old('subject')}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="tag">Tags</label>
+                    <label for="tag">De Onderwerpen</label>
                     <select name="tags[]" multiple id="tag">
                         {{-- todo add from db--}}
                         @foreach($tags as $tag)
@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label for="thread">Thread</label>
-                    <textarea class="form-control" name="thread" id="" placeholder="Input..."
+                    <textarea class="form-control" name="thread" id="" placeholder="Iets"
                     > {{old('thread')}}</textarea>
                 </div>
 
@@ -36,7 +36,7 @@
                    {!! app('captcha')->display() !!}
                 </div>  --}}
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-info">Verstuur</button>
             </form>
         </div>
     </div>

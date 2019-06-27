@@ -4,7 +4,7 @@
 
 @if(!empty($thread->solution))
     @if($thread->solution == $comment->id)
-        <button class="btn btn-success pull-right">Solution</button>
+        <button class="btn btn-success pull-right">De Oplossing</button>
     @endif
 
 @else
@@ -18,28 +18,28 @@
                 {{--<input type="submit" class="btn btn-success pull-right" id="{{$comment->id}}" value="Mark As Solution">--}}
             {{--</form>--}}
             @can('update',$thread)
-            <div  class="btn btn-success pull-right" onclick="markAsSolution('{{$thread->id}}','{{$comment->id}}',this)">Mark as solution</div>
+            <div  class="btn btn-info pull-right" onclick="markAsSolution('{{$thread->id}}','{{$comment->id}}',this)">Markeer Oplossing</div>
             @endcan
         {{--@endif--}}
     {{--@endif--}}
 
 
 @endif
-<lead>{{$comment->user->name}}</lead>
+<lead>Van: {{$comment->user->name}}</lead>
 
 <div class="actions">
 
-    <button class="btn btn-default btn-xs" id="{{$comment->id}}-count" >{{$comment->likes()->count()}}</button>
-    <span  class="btn btn-default btn-xs  {{$comment->isLiked()?"liked":""}}" onclick="likeIt('{{$comment->id}}',this)"><span class="glyphicon glyphicon-heart"></span></span>
+    <button class="btn btn-info btn-xs" id="{{$comment->id}}-count" >{{$comment->likes()->count()}}</button>
+    <span  class="btn btn-info btn-xs  {{$comment->isLiked()?"liked":""}}" onclick="likeIt('{{$comment->id}}',this)"><span class="glyphicon-apple"></span></span>
     {{--<a href="{{route('thread.edit',$thread->id)}}" class="btn btn-info btn-xs">Edit</a>--}}
-    <a class="btn btn-primary btn-xs" data-toggle="modal" href="#{{$comment->id}}">edit</a>
+    <a class="btn btn-info btn-xs" data-toggle="modal" href="#{{$comment->id}}">Bewerk</a>
     <div class="modal fade" id="{{$comment->id}}">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
                     </button>
-                    <h4 class="modal-title">Modal title</h4>
+                    <h4 class="modal-title">De Titel</h4>
                 </div>
                 <div class="modal-body">
                     <div class="comment-form">
@@ -47,15 +47,15 @@
                         <form action="{{route('comment.update',$comment->id)}}" method="post" role="form">
                             {{csrf_field()}}
                             {{method_field('put')}}
-                            <legend>Edit comment</legend>
+                            <legend>Bewerk Reactie</legend>
 
                             <div class="form-group">
                                 <input type="text" class="form-control" name="body" id=""
-                                       placeholder="Input..." value="{{$comment->body}}">
+                                       placeholder="Zeg iets...maar houd het netjes" value="{{$comment->body}}">
                             </div>
 
 
-                            <button type="submit" class="btn btn-primary">Comment</button>
+                            <button type="submit" class="btn btn-primary">Reageer</button>
                         </form>
 
                     </div>
@@ -69,7 +69,7 @@
     <form action="{{route('comment.destroy',$comment->id)}}" method="POST" class="inline-it">
         {{csrf_field()}}
         {{method_field('DELETE')}}
-        <input class="btn btn-xs btn-danger" type="submit" value="Delete">
+        <input class="btn btn-xs btn-danger" type="submit" value="Verwijder">
     </form>
 
 </div>

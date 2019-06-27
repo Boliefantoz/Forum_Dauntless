@@ -5,7 +5,7 @@
             <!-- Collapsed Hamburger -->
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
+                <span class="sr-only">Toggle Navigatie</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('Dauntless', 'Dauntless') }}
             </a>
         </div>
 
@@ -28,7 +28,7 @@
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('register') }}">Registreren</a></li>
                 @else
                     {{--notification--}}
                 <notification :userid="{{auth()->id()}}" :unreads="{{auth()->user()->unreadNotifications}}"></notification>
@@ -43,11 +43,11 @@
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Loguit
                                 </a>
 
                                 <a href="{{ route('user_profile',auth()->user()) }}">
-                                    My Profile
+                                    Mijn Profiel
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

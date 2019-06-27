@@ -1,7 +1,7 @@
 @extends('layouts.front')
 
 @section('heading')
-    <h4>Edit Thread</h4>
+    <h4>Bewerk Thread</h4>
 @endsection
 
 @section('content')
@@ -17,23 +17,23 @@
                 {{csrf_field()}}
                 {{method_field('put')}}
                 <div class="form-group">
-                    <label for="subject">Subject</label>
+                    <label for="subject">Onderwerp</label>
                     <input type="text" class="form-control" name="subject" id="" placeholder="Input..."
                            value="{{$thread->subject}}">
                 </div>
 
                 <div class="form-group">
-                    <label for="type">Type</label>
-                    <input type="text" class="form-control" name="type" id="" placeholder="Input..."
+                    <label for="type">Type Thread</label>
+                    <input type="text" class="form-control" name="type" id="" placeholder="iets"
                            value="{{$thread->type}}">
                 </div>
 
                 <div class="form-group">
                     <label for="thread">Thread</label>
-                    <textarea class="form-control" name="thread" id="" placeholder="Input..."> {{$thread->thread}} </textarea>
+                    <textarea class="form-control" name="thread" id="" placeholder="iets"> {{$thread->thread}} </textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-info">Verstuur</button>
             </form>
         </div>
     </div>

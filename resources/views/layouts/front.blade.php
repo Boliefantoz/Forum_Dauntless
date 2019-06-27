@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Webdev forum</title>
+    <title>Dauntless Forum</title>
     <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
@@ -26,7 +26,7 @@
 
 @yield('banner')
 
-<div class="container">
+<div class="container shadow">
 
 
     @include('layouts.partials.error')
@@ -34,7 +34,8 @@
     @include('layouts.partials.success')
 
     <div class="row">
-        <h2> Forum</h2>
+        <h2>Het Forum Over Dauntless</h2>
+        <hr>
         <br>
         
         @section('category')
@@ -50,6 +51,13 @@
     </div>
 
 </div>
+
+    <footer class="page-footer font-small  ">
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="https://playdauntless.com"> Bo en Harmjan</a>
+        </div>
+
+    </footer>
 </div>
 
 {{--<script src="https://code.jquery.com/jquery-3.1.1.min.js"--}}

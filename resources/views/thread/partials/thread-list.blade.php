@@ -14,16 +14,16 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><a href="{{route('thread.show',$thread->id)}}"> {{$thread->subject}}</a></h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body panel-info">
                 <p>{{str_limit($thread->thread,100) }}
                     <br>
-                    Posted by <a href="{{route('user_profile',$thread->user->name)}}">{{$thread->user->name}}</a> {{$thread->created_at->diffForHumans()}}
+                    Geplaatst door <a href="{{route('user_profile',$thread->user->name)}}"> {{$thread->user->name}}</a> {{$thread->created_at->diffForHumans()}}
                 </p>
             </div>
         </div>
 
     @empty
-        <h5>No threads</h5>
-
+        <h3 class="font-weight-bold">Er bestaan momenteel geen threads/onderwerpen</h3>
+       <img class="img-rounded img-responsive" src="https://assets.vg247.com/current//2019/05/dauntless-screenshot-quillshot.jpg" width="500">
     @endforelse
 </div>

@@ -2,26 +2,28 @@
 
 
 @section('content')
-    <div class="content-wrap well">
+    <div class="content-wrap well-lg bg-info ">
         <h4>{{$thread->subject}}</h4>
         <hr>
 
         <div class="thread-details">
             {!! \Michelf\Markdown::defaultTransform($thread->thread)  !!}
         </div>
+        Door:
+        {{$thread->user->name}}
         <br>
 
         {{--@if(auth()->user()->id == $thread->user_id)--}}
         @can('update',$thread)
             <div class="actions">
 
-                <a href="{{route('thread.edit',$thread->id)}}" class="btn btn-info btn-xs">Edit</a>
+                <a href="{{route('thread.edit',$thread->id)}}" class="btn btn-info btn-xs">Bewerk</a>
 
                 {{--//delete form--}}
                 <form action="{{route('thread.destroy',$thread->id)}}" method="POST" class="inline-it">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <input class="btn btn-xs btn-danger" type="submit" value="Delete">
+                    <input class="btn btn-xs btn-danger" type="submit" value="Verwijder">
                 </form>
 
             </div>
@@ -40,21 +42,21 @@
         <hr>
 
         {{--reply to comment--}}
-        <button class="btn btn-xs btn-default" onclick="toggleReply('{{$comment->id}}')">reply</button>
+        <button class="btn btn-xs btn-info" onclick="toggleReply('{{$comment->id}}')">Reageer</button>
         <br>
         {{--//reply form--}}
         <div style="margin-left: 50px" class="reply-form-{{$comment->id}} hidden">
 
             <form action="{{route('replycomment.store',$comment->id)}}" method="post" role="form">
                 {{csrf_field()}}
-                <legend>Create Reply</legend>
+                <legend>Voeg reactie toe</legend>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="body" id="" placeholder="Reply...">
+                    <input type="text" class="form-control" name="body" id="" placeholder="Reageer.">
                 </div>
 
 
-                <button type="submit" class="btn btn-primary">Reply</button>
+                <button type="submit" class="btn btn-info">Reageer</button>
             </form>
 
         </div>
@@ -67,7 +69,7 @@
 
 
     @endforeach
-    <br><br>
+    <br><br><br>
     @include('thread.partials.comment-form')
 
 @endsection

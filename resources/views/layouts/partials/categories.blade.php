@@ -1,24 +1,20 @@
 <div class="col-md-3">
     
     <form method="get" action="/thread/search">
-        
-        <div class="form-group">
-            <input type="text" name="query" class="form-control" placeholder="Search">
-        </div>
 
     </form>
     
 
-    <a class="btn btn-success form-control"  href="{{route('thread.create')}}">Create Thread</a> <br><br>
-    <h4>Tags</h4>
+    <a class="btn btn-info form-control"  href="{{route('thread.create')}}">Maak Thread</a> <br><br>
+    <h4>De Categorieen</h4>
     <ul class="list-group">
-        <a href="{{route('thread.index')}}" class="list-group-item">
-            <span class="badge">14</span>
-            All Threads
+        <a href="{{route('thread.index')}}" class="list-group-item active">
+            <span class="badge"></span>
+            Alle Categorieen
         </a>
         @foreach($tags as $tag)
-        <a href="{{route('thread.index',['tags'=>$tag->id])}}" class="list-group-item">
-            <span class="badge">14</span>
+        <a href="{{route('thread.index',['tags'=>$tag->id])}}" class="list-group-item list-group-item-info">
+            <span class="badge"></span>
             {{$tag->name}}
     </a>
         @endforeach
