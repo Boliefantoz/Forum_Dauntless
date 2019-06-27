@@ -1,4 +1,4 @@
-# How to use
+#Hooe gebruik je het?
 
 
 Clone repo
