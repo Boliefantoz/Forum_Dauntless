@@ -1,9 +1,9 @@
-#Hooe gebruik je het?
+#Hoe gebruik je het?
 
 
 Clone repo
 
-	git clone https://github.com/webdevmatics/webdevforum.git
+	git clone 
 Install the composer dependencies
 
 	composer install
@@ -17,3 +17,4 @@ Set application key
 And Migrate with
 
 `php artisan migrate`
+Gemaakt met Hulp van YT en webdevguy
